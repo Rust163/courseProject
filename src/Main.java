@@ -32,11 +32,11 @@ public class Main {
         //-------------------------------------Повышенная сложность-------------------------------------------------
 
         EmployeeMethods.borderLine();
-        EmployeeMethods.raiseSalary (Employees,50);
+        EmployeeMethods.raiseSalary (Employees, (float) 0.10);
         EmployeeMethods.borderLine();
-        int number = 2;
-        EmployeeMethods.minSalaryOfTheDepartment(Employees, 3);
-        EmployeeMethods.maxSalaryOfTheDepartment(Employees, 3);
+        int number = 4;
+        EmployeeMethods.minSalaryOfTheDepartment(Employees, number);
+        EmployeeMethods.maxSalaryOfTheDepartment(Employees, number);
 
     }
 }

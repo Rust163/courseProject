@@ -2,25 +2,35 @@ public class EmployeeMethods {
     public static void borderLine() {
         System.out.println("===========================================================================================================");
     }
+    public static int employeeCount(Employee[] arr) {
+        int l = 0;
+        for (byte i = 0; i < arr.length; i++) {
+            if (arr[i] != null) {
+                l++;
+            }
+        }
+        return l;
+    }
 
     //-----------Получить список всех сотрудников со всеми имеющимися по ним данными (вывести в консоль значения всех полей (toString)).-------
-    public static void employeesList(Employee[] arr) {
+    public static int employeesList(Employee[] arr) {
         for (int i = 0; i < arr.length; i++) {
             System.out.println(arr[i]);
         }
-
-
+        return 0;
     }
 
     //---------------Посчитать сумму затрат на зарплаты в месяц.----------------------------------------------
-    public static void monthlySalaryCosts(Employee[] arr) {
+    public static float monthlySalaryCosts(Employee[] arr) {
+       
         float totalSumSalary = 0f;
         for (int i = 0; i < arr.length; i++) {
-
-            totalSumSalary += arr[i].getSalary();
-
+            if (arr[i] != null) {
+                totalSumSalary += arr[i].getSalary();
+            }
         }
-        System.out.println("Сумарные затраты на зарплаты: " + totalSumSalary);
+        System.out.println("Суммарные затраты на зарплаты: " + totalSumSalary);
+        return totalSumSalary;
     }
 
     //----------------Найти сотрудника с минимальной зарплатой. -----------------------------------------------
@@ -54,15 +64,14 @@ public class EmployeeMethods {
     }
 
     //------------------Подсчитать среднее значение зарплат (можно использовать для этого метод из пункта b). ---------
-    public static void averageValue(Employee[] arr) {
-        float averageSum = 0f;
-        float totalSumSalary = 0f;
-        for (int i = 0; i < arr.length; i++) {
-            totalSumSalary += arr[i].getSalary();
-            averageSum = totalSumSalary / 31;
-        }
-        System.out.println("Среднее значение зарплат: " + averageSum);
+    public static float averageValue(Employee[] arr) {
+        float l = EmployeeMethods.employeeCount(arr);
+        float m = EmployeeMethods.monthlySalaryCosts(arr);
+        float averageSalary = m / l;
+        System.out.println("Средняя зарплата: " + averageSalary);
+        return averageSalary;
     }
+
 //------------------Получить Ф. И. О. всех сотрудников (вывести в консоль).------------------------------------
 
     public static void listEmployee(Employee[] arr) {
@@ -74,13 +83,12 @@ public class EmployeeMethods {
     //-------------------Повышенная сложность.----------------------------------------------------------------------
     //--------------------Проиндексировать зарплату (вызвать изменение зарплат у всех сотрудников на величину аргумента в %).------------------------------------------
     public static void raiseSalary(Employee[] arr, float percent) {
-        //float percent = 15f;
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] != null) {
-                float raise = (arr[i].getSalary() / 100) * percent;
-                System.out.println("Сотруднику " + arr[i].getFullName() + ". Зарплата поднята на " + percent + "%, общая сумма прибавки составляет " + (int) raise);
+                arr[i].setSalary(arr[i].getSalary() + arr[i].getSalary() * percent);
             }
         }
+        System.out.println("Зарплаты подняты на " + percent * 100 + " процентов");
     }
 
 //-------------------2. Получить в качестве параметра номер отдела (1–5) и найти (всего 6 методов):-------------------------------------------------------------------

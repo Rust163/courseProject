@@ -1,14 +1,14 @@
 public class Employee {
 
     private final String name;
-    public String surname;
+    private String surname;
     private final String patronymic;
-    public int department;
+    private int department;
     private float salary;
     private int id;
     public static int idCounter = 0;
 
-    public String fullName;
+    private String fullName;
 
     public Employee(String name, String patronymic, String surname, float salary, int departments) {
         this.name = name;
