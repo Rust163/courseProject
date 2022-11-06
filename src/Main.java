@@ -37,6 +37,6 @@ public class Main {
         int number = 4;
         EmployeeMethods.minSalaryOfTheDepartment(Employees, number);
         EmployeeMethods.maxSalaryOfTheDepartment(Employees, number);
-
+        EmployeeMethods.borderLine();
     }
 }

@@ -13,23 +13,20 @@ public class EmployeeMethods {
     }
 
     //-----------Получить список всех сотрудников со всеми имеющимися по ним данными (вывести в консоль значения всех полей (toString)).-------
-    public static int employeesList(Employee[] arr) {
+    public static void employeesList(Employee[] arr) {
         for (int i = 0; i < arr.length; i++) {
             System.out.println(arr[i]);
         }
-        return 0;
     }
 
     //---------------Посчитать сумму затрат на зарплаты в месяц.----------------------------------------------
     public static float monthlySalaryCosts(Employee[] arr) {
-       
         float totalSumSalary = 0f;
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] != null) {
                 totalSumSalary += arr[i].getSalary();
             }
-        }
-        System.out.println("Суммарные затраты на зарплаты: " + totalSumSalary);
+        }System.out.println("Суммарные затраты на зарплаты: " + totalSumSalary);
         return totalSumSalary;
     }
 
@@ -64,12 +61,11 @@ public class EmployeeMethods {
     }
 
     //------------------Подсчитать среднее значение зарплат (можно использовать для этого метод из пункта b). ---------
-    public static float averageValue(Employee[] arr) {
+    public static void averageValue(Employee[] arr) {
         float l = EmployeeMethods.employeeCount(arr);
         float m = EmployeeMethods.monthlySalaryCosts(arr);
         float averageSalary = m / l;
         System.out.println("Средняя зарплата: " + averageSalary);
-        return averageSalary;
     }
 
 //------------------Получить Ф. И. О. всех сотрудников (вывести в консоль).------------------------------------
@@ -125,7 +121,6 @@ public class EmployeeMethods {
             System.out.println("Отдел: №" + number + ", Сотрудник: " + arr[l].getFullName() + ", Максимальная сумма зарплаты: " + maxSum + " руб.");
         }
     }
-
 }
 
 
